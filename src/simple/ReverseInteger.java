@@ -4,7 +4,7 @@ package simple;
  * @author gmg
  * @Title:
  * @Package
- * @Description:
+ * @Description: 反转整数
  * @date 2018/9/20  17:57
  */
 public class ReverseInteger {

@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @author gmg
  * @Title:
  * @Package
- * @Description:
+ * @Description: 两数之和
  * @date 2018/9/20  17:40
  */
 public class TwoSum {
