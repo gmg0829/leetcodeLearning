@@ -7,7 +7,7 @@ import java.util.List;
  * @author gmg
  * @Title:
  * @Package
- * @Description:
+ * @Description: 无重复数全排列
  * @date 2018/10/18  18:01
  */
 public class Permutations {

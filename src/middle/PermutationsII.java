@@ -8,7 +8,7 @@ import java.util.List;
  * @author gmg
  * @Title:
  * @Package
- * @Description:
+ * @Description: 有重复数全排列
  * @date 2018/10/18  18:02
  */
 public class PermutationsII {
