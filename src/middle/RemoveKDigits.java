@@ -4,7 +4,7 @@ package middle;
  * @author gmg
  * @Title:
  * @Package
- * @Description:
+ * @Description: 移除K位数字求最小值
  * @date 2018/11/13  9:01
  */
 public class RemoveKDigits {
