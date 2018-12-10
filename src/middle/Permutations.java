@@ -11,40 +11,33 @@ import java.util.List;
  * @date 2018/10/18  18:01
  */
 public class Permutations {
-    /**
-     * Main method
-     *
-     * @param args
-     * @throws Exception
-     */
-    public static void main(String[] args) throws Exception {
-        int[] nums = {1, 2, 3};
-        List<List<Integer>> result = new Permutations().permute(nums);
-        System.out.println(result);
-    }
+    public static void permutation1(String str ,String result ,int len){
+        /* 全排列 递归实现
+      递归树：
+          str:          a            b                c
+                      ab ac         ba   bc         ca   cb
+        result:        abc acb        bac    bca      cab   cba
+         */
 
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        nextPermutation(0, nums, result);
-        return result;
-    }
-
-    private void nextPermutation(int i, int[] nums, List<List<Integer>> result) {
-        if (i == nums.length - 1) {
-            List<Integer> list = new ArrayList<>();
-            for (int n : nums)
-                list.add(n);
-            result.add(list);
-        } else {
-            for (int j = i, l = nums.length; j < l; j++) {
-                int temp = nums[j];
-                nums[j] = nums[i];
-                nums[i] = temp;
-                nextPermutation(i + 1, nums, result);
-                temp = nums[j];
-                nums[j] = nums[i];
-                nums[i] = temp;
+        //结果 开始传入""   空字符进入   len   是这个数的长度
+        if(result.length()==len){            //表示遍历完了一个全排列结果
+            System.out.println(result);
+        }
+        else{
+            for(int i=0;i<str.length();i++){
+                if(result.indexOf(str.charAt(i))<0){    //返回指定字符在此字符串中第一次出现处的索引。
+                    //System.out.println("字母："+str.charAt(i));
+                    permutation1(str, result+str.charAt(i), len);
+                }
             }
         }
+    }
+
+
+
+    public static void main(String args[]) throws Exception {
+        String s = "abc";
+        String result = "";
+        permutation1(s, result, s.length());
     }
 }

@@ -8,24 +8,21 @@ package simple;
  * @date 2018/10/17  11:32
  */
         public class LengthOfLongestSubstring {
-            public static int lengthOfLongestSubstring(String s) {
-                int len;
-                if (s == null || (len = s.length()) == 0) return 0;
-                int preP = 0, max = 0;
-                int[] hash = new int[128];
-                for (int i = 0; i < len; ++i) {
-                    char c = s.charAt(i);
-                    if (hash[c] > preP) {
-                        preP = hash[c];
-                    }
-                    int l = i - preP + 1;
-                    hash[c] = i + 1;
-                    if (l > max) max = l;
-                }
-                return max;
-            }
 
-            public static void main(String[] args) {
-                System.out.println(lengthOfLongestSubstring("abcabsfgdb"));
+    public static int lengthOfLongestSubstring(String s) {
+        int n = s.length(), ans = 0;
+        int[] index = new int[128]; // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            i = Math.max(index[s.charAt(j)], i);
+            ans = Math.max(ans, j - i + 1);
+            index[s.charAt(j)] = j + 1;
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(lengthOfLongestSubstring("abcabsfgdb"));
     }
 }
