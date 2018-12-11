@@ -7,7 +7,7 @@ import java.util.Stack;
  */
 public class LongestValidParentheses {
     public static void main(String[] args) {
-        System.out.println(LongestValidParentheses.longestValidParentheses("(()"));
+        System.out.println(LongestValidParentheses.longestValidParentheses("(())"));
     }
     public static int longestValidParentheses(String s) {
         // 用于记录待匹配的左括号和右括号的位置
