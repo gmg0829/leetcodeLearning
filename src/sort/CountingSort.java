@@ -12,17 +12,17 @@ public class CountingSort implements IArraySort {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
-        int maxValue = getMaxValue(arr);
+        int maxval = getMaxval(arr);
 
-        return countingSort(arr, maxValue);
+        return countingSort(arr, maxval);
     }
 
-    private int[] countingSort(int[] arr, int maxValue) {
-        int bucketLen = maxValue + 1;
+    private int[] countingSort(int[] arr, int maxval) {
+        int bucketLen = maxval + 1;
         int[] bucket = new int[bucketLen];
 
-        for (int value : arr) {
-            bucket[value]++;
+        for (int val : arr) {
+            bucket[val]++;
         }
 
         int sortedIndex = 0;
@@ -35,14 +35,14 @@ public class CountingSort implements IArraySort {
         return arr;
     }
 
-    private int getMaxValue(int[] arr) {
-        int maxValue = arr[0];
-        for (int value : arr) {
-            if (maxValue < value) {
-                maxValue = value;
+    private int getMaxval(int[] arr) {
+        int maxval = arr[0];
+        for (int val : arr) {
+            if (maxval < val) {
+                maxval = val;
             }
         }
-        return maxValue;
+        return maxval;
     }
 
 }

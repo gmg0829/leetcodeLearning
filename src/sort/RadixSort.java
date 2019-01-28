@@ -22,18 +22,18 @@ public class RadixSort implements IArraySort {
      * 获取最高位数
      */
     private int getMaxDigit(int[] arr) {
-        int maxValue = getMaxValue(arr);
-        return getNumLenght(maxValue);
+        int maxval = getMaxval(arr);
+        return getNumLenght(maxval);
     }
 
-    private int getMaxValue(int[] arr) {
-        int maxValue = arr[0];
-        for (int value : arr) {
-            if (maxValue < value) {
-                maxValue = value;
+    private int getMaxval(int[] arr) {
+        int maxval = arr[0];
+        for (int val : arr) {
+            if (maxval < val) {
+                maxval = val;
             }
         }
-        return maxValue;
+        return maxval;
     }
 
     protected int getNumLenght(long num) {
@@ -62,8 +62,8 @@ public class RadixSort implements IArraySort {
 
             int pos = 0;
             for (int[] bucket : counter) {
-                for (int value : bucket) {
-                    arr[pos++] = value;
+                for (int val : bucket) {
+                    arr[pos++] = val;
                 }
             }
         }
@@ -75,11 +75,11 @@ public class RadixSort implements IArraySort {
      * 自动扩容，并保存数据
      *
      * @param arr
-     * @param value
+     * @param val
      */
-    private int[] arrayAppend(int[] arr, int value) {
+    private int[] arrayAppend(int[] arr, int val) {
         arr = Arrays.copyOf(arr, arr.length + 1);
-        arr[arr.length - 1] = value;
+        arr[arr.length - 1] = val;
         return arr;
     }
 }

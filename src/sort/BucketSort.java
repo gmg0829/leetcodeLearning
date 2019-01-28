@@ -22,22 +22,22 @@ public class BucketSort implements IArraySort {
             return arr;
         }
 
-        int minValue = arr[0];
-        int maxValue = arr[0];
-        for (int value : arr) {
-            if (value < minValue) {
-                minValue = value;
-            } else if (value > maxValue) {
-                maxValue = value;
+        int minval = arr[0];
+        int maxval = arr[0];
+        for (int val : arr) {
+            if (val < minval) {
+                minval = val;
+            } else if (val > maxval) {
+                maxval = val;
             }
         }
 
-        int bucketCount = (int) Math.floor((maxValue - minValue) / bucketSize) + 1;
+        int bucketCount = (int) Math.floor((maxval - minval) / bucketSize) + 1;
         int[][] buckets = new int[bucketCount][0];
 
         // 利用映射函数将数据分配到各个桶中
         for (int i = 0; i < arr.length; i++) {
-            int index = (int) Math.floor((arr[i] - minValue) / bucketSize);
+            int index = (int) Math.floor((arr[i] - minval) / bucketSize);
             buckets[index] = arrAppend(buckets[index], arr[i]);
         }
 
@@ -48,8 +48,8 @@ public class BucketSort implements IArraySort {
             }
             // 对每个桶进行排序，这里使用了插入排序
             bucket = insertSort.sort(bucket);
-            for (int value : bucket) {
-                arr[arrIndex++] = value;
+            for (int val : bucket) {
+                arr[arrIndex++] = val;
             }
         }
 
@@ -60,11 +60,11 @@ public class BucketSort implements IArraySort {
      * 自动扩容，并保存数据
      *
      * @param arr
-     * @param value
+     * @param val
      */
-    private int[] arrAppend(int[] arr, int value) {
+    private int[] arrAppend(int[] arr, int val) {
         arr = Arrays.copyOf(arr, arr.length + 1);
-        arr[arr.length - 1] = value;
+        arr[arr.length - 1] = val;
         return arr;
     }
 

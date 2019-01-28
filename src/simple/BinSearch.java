@@ -29,7 +29,7 @@ public class BinSearch {
      * 二分查找普通实现。
      * @param srcArray 有序数组
      * @param key 查找元素
-     * @return  不存在返回-1
+     * @return  不存在返回-1 时间复杂度 logn
      */
     public static int binSearch(int srcArray[], int key) {
         int mid;
