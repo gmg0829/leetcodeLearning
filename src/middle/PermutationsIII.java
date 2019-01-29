@@ -33,7 +33,8 @@ public class PermutationsIII {
     }
 
     public static void main(String[] args) {
-        char[] s = {'a','b','c'};
+        String k="abc";
+        char[] s =k.toCharArray();
         permutation(s, 0, s.length-1);
     }
 }
